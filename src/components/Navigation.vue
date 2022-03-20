@@ -31,8 +31,8 @@ export default {
   data() {
     return {
       scrollPosition: null,
-      mobile: false,
-      mobileNav: null,
+      mobile: true,
+      mobileNav: true,
       windowWidth: null,
     }
   }
@@ -121,6 +121,25 @@ header {
 
     .icon-active {
       transform: rotate(180deg)
+    }
+
+    .dropdown-nav {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      max-width: 250px;
+      height: 100%;
+      background-color: #fff;
+      top: 0;
+      left: 0;
+
+      li {
+        margin-left: 0;
+        .link {
+          color: #000;
+        }
+      }
     }
 
   }
