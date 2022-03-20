@@ -31,9 +31,14 @@ export default {
   data() {
     return {
       scrollPosition: null,
-      mobile: true,
-      mobileNav: true,
+      mobile: null,
+      mobileNav: null,
       windowWidth: null,
+    }
+  },
+  methods: {
+    toggleMobileNav() {
+      this.mobileNav = !this.mobileNav
     }
   }
 }
