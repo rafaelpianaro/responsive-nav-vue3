@@ -36,9 +36,24 @@ export default {
       windowWidth: null,
     }
   },
+  created() {
+    window.addEventListener('resize', this.checkScreen)
+    this.checkScreen()
+  },
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav
+    },
+    
+    checkScreen() {
+      this.windowWidth = window.innerWidth
+      if (this.windowWidth <= 750) {
+        this.mobile = true
+        return
+      }
+      this.mobile = false
+      this.mobileNav = false
+      return
     }
   }
 }
