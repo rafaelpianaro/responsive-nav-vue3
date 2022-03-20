@@ -1,5 +1,5 @@
 <template>
-  <header :class="{ 'scrolled-nav':scrollPosition }">
+  <header :class="{ 'scrolled-nav': scrollPosition }">
       <nav>
           <div class="branding">
               <img src="@/assets/logo.png" alt="" >
@@ -11,7 +11,7 @@
               <li><router-link class="link" :to="{name: ''}">Contact</router-link></li>
           </ul>
           <div class="icon">
-              <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{ 'icon-active':mobileNav }"></i>
+              <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{ 'icon-active': mobileNav }"></i>
           </div>
           <transition name="mobile-nav">
             <ul v-show="mobileNav" class="dropdown-nav">
@@ -27,7 +27,15 @@
 
 <script>
 export default {
-
+  name: 'Navigation',
+  data() {
+    return {
+      scrollPosition: null,
+      mobile: false,
+      mobileNav: null,
+      windowWidth: null,
+    }
+  }
 }
 </script>
 
@@ -42,6 +50,7 @@ header {
   color: #fff;
 
   nav {
+    position: relative;
     display: flex;
     flex-direction: row;
     padding: 12px 0;
@@ -56,8 +65,8 @@ header {
     .link {
       font-weight: 500;
       color: #fff;
-      list-style: nome;
-      text-decoration: nome;
+      list-style: none;
+      text-decoration: none;
     }
 
     li {
@@ -88,9 +97,33 @@ header {
       }
     }
 
+    .navigation {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 24px;
+      height: 100%;
+
+      i {
+        cursor: pointer;
+        font-size: 24px;
+        transition: 0.8s ease all;
+      }
+    }
+
+    .icon-active {
+      transform: rotate(180deg)
+    }
 
   }
-
 }
 
 </style>
