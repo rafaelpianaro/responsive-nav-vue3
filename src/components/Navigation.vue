@@ -1,5 +1,5 @@
 <template>
-  <header :class="{ 'scrolled-nav': scrollPosition }">
+  <header :class="{ 'scrolled-nav': scrollNav }">
       <nav>
           <div class="branding">
               <img src="@/assets/logo.png" alt="" >
@@ -30,7 +30,7 @@ export default {
   name: 'Navigation',
   data() {
     return {
-      scrollPosition: null,
+      scrollNav: null,
       mobile: null,
       mobileNav: null,
       windowWidth: null,
@@ -43,6 +43,15 @@ export default {
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav
+    },
+
+    updateScroll() {
+      const scrollPosition = window.scrollY
+      if ( scrollPosition > 50) {
+        this.scrollNav = true
+        return
+      }
+      this.scrollNav = false
     },
     
     checkScreen() {
