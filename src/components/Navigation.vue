@@ -40,6 +40,9 @@ export default {
     window.addEventListener('resize', this.checkScreen)
     this.checkScreen()
   },
+  mounted() {
+    window.addEventListener('scroll', this.updateScroll)
+  },
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav
@@ -171,6 +174,22 @@ header {
       }
     }
 
+  }
+}
+
+.scrolled-nav {
+  background-color: #000;
+  box-shadow: 0 4px 6px -1px rgb(0, 0, 0, 0.1), 0 2px 4px -1px rgb(0, 0, 0, 0.06);
+
+  nav {
+    padding: 8px 0;
+
+    .branding {
+      img {
+        widows: 40px;
+        box-shadow: 0 4px 6px -1px rgb(0, 0, 0, 0.1), 0 2px 4px -1px rgb(0, 0, 0, 0.06);
+      }
+    }
   }
 }
 
